@@ -12,7 +12,7 @@ def write_json(data, filename='projects.json'):
 
 @app.route('/<api_key>/projects/add', methods = ['POST'])
 def add_projects(api_key):
-    with open('keys.json') as key_json:
+    with open('keys_file') as key_json:
         keys = json.load(key_json)
         data_json = request.get_json(force = True)
         if api_key in keys['api_keys']:
@@ -46,7 +46,7 @@ def add_projects(api_key):
 
 @app.route('/<api_key>/projects/view', methods = ['GET'])
 def view_projects(api_key):
-    with open('keys.json') as key_json:
+    with open('keys_file') as key_json:
         keys = json.load(key_json)
         if api_key in keys['api_keys']:
             with open('projects.json') as json_file:
