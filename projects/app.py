@@ -32,7 +32,7 @@ def add_projects(api_key):
                 "stack": stack,
                 "category": category
             }
-            with open('projects.json') as json_file:
+            with open('projects_json_file') as json_file:
                 data = json.load(json_file)
                 temp = data['projects']
 
@@ -49,7 +49,7 @@ def view_projects(api_key):
     with open('keys_file') as key_json:
         keys = json.load(key_json)
         if api_key in keys['api_keys']:
-            with open('projects.json') as json_file:
+            with open('projects_json_file') as json_file:
                 data = json.load(json_file)
                 projects = data['projects']
             return jsonify(projects)
