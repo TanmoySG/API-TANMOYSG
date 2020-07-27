@@ -39,11 +39,8 @@ def add_projects(api_key):
             with open('projects_file') as json_file:
                 data = json.load(json_file)
                 temp = data['projects']
-
                 temp.append(project)
-
             write_json(data, 'projects_file')
-
             return 'Data Entered!'
         else:
             return 'Wrong API Key'
@@ -95,7 +92,6 @@ def delete_projects(api_key):
             with open('projects_file') as json_file:
                 data = json.load(json_file)
                 temp = data['projects']
-
                 if not any(d['_uuid'] == _uuid for d in temp):
                     return 'Data does not exist'
                 else:
